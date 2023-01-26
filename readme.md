@@ -1,10 +1,10 @@
 createMvcRepoProject.ps1 SolutionName
 
 creates projects:
-- web (aspnet mvc, identity)
-- data (db context)
-- models
-- utils (etc.)
+- SolutionName.Web (aspnet mvc, identity)
+- SolutionName.Data (db context)
+- SolutionName.Models
+- SolutionName.Utils (etc.)
 
 adds lines for bootstrap
 
