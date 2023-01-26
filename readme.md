@@ -1,4 +1,4 @@
-createMvcRepoProject.ps1 solution-name
+createMvcRepoProject.ps1 SolutionName
 
 creates projects:
 - web (aspnet mvc, identity)
