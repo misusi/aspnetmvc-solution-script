@@ -144,3 +144,7 @@ $fileName = "$webProjName/Views/Shared/_Layout.cshtml"
         }
         $_ # send the current line to output
     } | Set-Content $fileName
+## Remove local bootstrap line
+(Get-Content $fileName) |
+Where-Object { $_ -notlike '*lib/bootstrap/dist/js/bootstrap.bundle.min.js*' } |
+Set-Content $fileName
