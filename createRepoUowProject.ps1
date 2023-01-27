@@ -84,6 +84,10 @@ cp $webProjName/Controllers/HomeController.cs $webProjName/Areas/User/Controller
 Remove-Item $webProjName/Controllers -Force -Recurse -Confirm:$false
 cp -r $webProjName/Data/Migrations $dataProjName
 Remove-Item $webProjName/Data -Force -Recurse -Confirm:$false
+cp $webProjName/Views/_ViewStart.cshtml $webProjName/Areas/Admin/Views
+cp $webProjName/Views/_ViewImports.cshtml $webProjName/Areas/Admin/Views
+cp $webProjName/Views/_ViewStart.cshtml $webProjName/Areas/User/Views
+cp $webProjName/Views/_ViewImports.cshtml $webProjName/Areas/User/Views
 ## Data - Add Files/Folders
 Remove-Item $dataProjName/Class1.cs -Force -Recurse -Confirm:$false
 mkdir -p $dataProjName/Repository/IRepository
@@ -125,6 +129,10 @@ $fileName = "$webProjName/Views/Shared/_Layout.cshtml"
         }
         $_ # send the current line to output
     } | Set-Content $fileName
+## Remove local bootstrap line
+(Get-Content $fileName) |
+    Where-Object { $_ -notlike '*css/site.css*' } |
+    Set-Content $fileName
 ## Add js line before "@await RenderSectionAsync"
 $fileName = "$webProjName/Views/Shared/_Layout.cshtml"
 (Get-Content $fileName) | 
