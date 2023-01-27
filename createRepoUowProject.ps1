@@ -131,7 +131,7 @@ $fileName = "$webProjName/Views/Shared/_Layout.cshtml"
     } | Set-Content $fileName
 ## Remove local bootstrap line
 (Get-Content $fileName) |
-    Where-Object { $_ -notlike '*css/site.css*' } |
+    Where-Object { $_ -notlike '*lib/bootstrap/dist/css/bootstrap.min.css*' } |
     Set-Content $fileName
 ## Add js line before "@await RenderSectionAsync"
 $fileName = "$webProjName/Views/Shared/_Layout.cshtml"
